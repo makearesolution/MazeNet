@@ -11,15 +11,15 @@ passwordSchema
 .has().digits()                                 // Must have digits
 .has().not().spaces();
 
-let user = mongoose.model('User', {
+var User = mongoose.model('User', {
     email:{
         type: String,
         require: true,
         trim: true,
         unique: true,
         validate:{
-            validator.isEmail,
-            message: `${Value} buruu emai`
+            validator: validator.isEmail,
+            message: 'buruu emai'
         }
     },
     firstName: String,
@@ -28,12 +28,12 @@ let user = mongoose.model('User', {
         type:String,
         require:true,
         validate:{
-            passwordSchema.validate,
-            message: 'Password'  
+            validator: passwordSchema.validate,
+            message: 'Password'
         }
     }
 });
 
-module.exports{
+module.exports = {
     User
 };
