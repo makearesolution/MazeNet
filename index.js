@@ -31,6 +31,23 @@ app.post("/addNews",function(req,res){
     res.redirect("/");
 });
 
+// Post /users
+app.post('/users', (req, res) => {
+    let info = _.pick(req.body, ['email', 'password']);
+    let user = User(info);
+
+    user.save()
+        .then((user) => {
+            return user.generateAuthToken();
+        })
+        .then((token) => {
+            res.header('x-auth', token).send(user);
+        })
+        .catch((e) => {
+            res.status(400).send(e);
+        });
+});
+
 
 app.get("/about",function(req,res){
     res.send("about"); 
