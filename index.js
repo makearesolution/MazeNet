@@ -20,6 +20,7 @@ app.get("/",function(req,res){
 
 app.get("/addNews",function(req,res){
     res.render("addNews.ejs");
+	//hi
 });
 
 app.post("/addNews",function(req,res){
