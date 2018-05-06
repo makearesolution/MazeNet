@@ -1,14 +1,14 @@
 var express = require("express");
 
-var bodyParser = require('body-parser');
-
-
+var bodyParser = require('body-parser'),
+    mongoose = require("mongoose");
 var app = express();
 var port = process.env.PORT || 3000;
-
 app.use(bodyParser.urlencoded({ extended: false }));    
-
 app.use(express.static("public"));
+
+mongoose.connect("mongodb://localhost/mazenet");
+
 
 var news = [{title: "Math",imgUrl:"post (1).jpg"},
             {title: "Physic",imgUrl:"post (2).jpg"}];
