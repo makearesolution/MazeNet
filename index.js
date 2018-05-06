@@ -37,16 +37,20 @@ app.post("/addNews",function(req,res){
 });
 
 // Post /users
-app.post('/users', (req, res) => {
-    let info = _.pick(req.body, ['email', 'password']);
-    let user = User(info);
+app.post('/adduser', (req, res) => {
+    var info = {
+        email: req.body.email,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        // password: req.body.password
+    };
+    var user = User(info);
+    console.log(info);
+    console.log(user);
 
     user.save()
         .then((user) => {
-            return user.generateAuthToken();
-        })
-        .then((token) => {
-            res.header('x-auth', token).send(user);
+          res.send(user);
         })
         .catch((e) => {
             res.status(400).send(e);

@@ -12,13 +12,10 @@
     "body-parser": "^1.18.2",
     "ejs": "^2.5.9",
     "express": "^4.16.3",
-<<<<<<< HEAD
     "mongoose": "^5.0.17",
     "password-validator": "^4.1.1",
-    "validator": "^10.1.0"
-=======
+    "validator": "^10.1.0",
     "lodash": "^4.17.10",
     "mongoose": "^5.0.17"
->>>>>>> 3bf658c200e59faa452d3eb653e3a2863d3ebede
   }
 }

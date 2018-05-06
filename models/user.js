@@ -1,15 +1,15 @@
 var mongoose = require("mongoose"),
-    validator = require("validator"),
-    passwordV= require("password-validator");
+    validator = require("validator");
+    // passwordV= require("password-validator");
 
-var passwordSchema = new passwordV();
-passwordSchema
-.is().min(8)
-.is().max(100)
-.has().uppercase()                              // Must have uppercase letters
-.has().lowercase()                              // Must have lowercase letters
-.has().digits()                                 // Must have digits
-.has().not().spaces();
+// var passwordSchema = new passwordV();
+// passwordSchema
+// .is().min(8)
+// .is().max(100)
+// .has().uppercase()                              // Must have uppercase letters
+// .has().lowercase()                              // Must have lowercase letters
+// .has().digits()                                 // Must have digits
+// .has().not().spaces();
 
 var User = mongoose.model('User', {
     email:{
@@ -27,10 +27,10 @@ var User = mongoose.model('User', {
     password:{
         type:String,
         require:true,
-        validate:{
-            validator: passwordSchema.validate,
-            message: 'Password'
-        }
+        // validate:{
+        //     validator: passwordSchema.validate,
+        //     message: 'Password'
+        // }
     }
 });
 
