@@ -1,2 +1,3 @@
 # MazeNet
-Hackum Spring MazeNet project
+Hackum Spring MazeNet project Good
+
